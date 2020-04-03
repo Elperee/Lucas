@@ -1,0 +1,56 @@
+n = int(input("Introduce el numero mayor: "))
+m = int(input("Introduce el numero menor: "))
+exprimo = True
+
+while n < m or n < 0 or m < 0:
+    print("\nAmbos numeros deben ser positivos el primer valor debe ser mayor al segundo")
+    n = int(input("Introduce el numero mayor: "))
+    m = int(input("Introduce el numero menor: "))
+
+
+def es_primo(numero, primo):
+    if numero > 1:
+        creo_que_es_primo = True
+        divisor = 2
+        while divisor < numero and creo_que_es_primo:
+            if numero % divisor == 0:
+                creo_que_es_primo = False
+            divisor += 1
+    else:
+        creo_que_es_primo = False
+
+    if creo_que_es_primo:
+        primo = True
+        return primo
+
+    else:
+        primo = False
+        return primo
+
+
+exprimo = es_primo(n, exprimo)
+exprimo2 = es_primo(m, exprimo)
+if exprimo:
+    print(f'El numero {n} es primo por lo tanto el MCD(num1,num2) es {m}')
+
+elif exprimo2:
+    print(f'El numero {m} es primo por lo tanto el MCD(num1,num2) es {n}')
+
+else:
+    residuo1 = 1
+    residuo2 = 1
+    if n == m:
+        print(f'El MCD(num1,num2) es {n}')
+    #if n % m == 0:                          #Falla con 72 y 16
+     #   print(f'El MCD(num1,num2) es {m}')
+
+    elif n % m != 0:
+        residuo = n % m
+        if m % residuo != 0:
+            residuo1 = m % residuo
+        else:
+            print(f'El MCD(num1,num2) es {m}')
+            if residuo % residuo1 != 0:
+                residuo2 = residuo % residuo1
+            else:
+                print(f'El MCD(num1,num2) es {residuo}')
