@@ -1,3 +1,5 @@
+# Encontrar MCD(a,b) entre 2 numeros enteros positivos
+
 n = int(input("Introduce el numero mayor: "))
 m = int(input("Introduce el numero menor: "))
 exprimo = True
@@ -8,7 +10,24 @@ while n < m or n < 0 or m < 0:
     m = int(input("Introduce el numero menor: "))
 
 
-def es_primo(numero, primo):
+def es_divisor(num):
+    divisores = []
+    for numero in range(1, num //2 + 1):
+        if num % numero == 0:
+            divisores.append(numero)
+    return divisores
+
+
+def compara_listas(L1, L2):
+    conjunto = set(L1)
+    conjunto2 = set(L2)
+    iguales = conjunto & conjunto2
+    considentes = list(iguales)
+    considentes.sort()
+    print(considentes[-1])
+
+
+def es_primo(numero):
     if numero > 1:
         creo_que_es_primo = True
         divisor = 2
@@ -28,8 +47,8 @@ def es_primo(numero, primo):
         return primo
 
 
-exprimo = es_primo(n, exprimo)
-exprimo2 = es_primo(m, exprimo)
+exprimo = es_primo(n)
+exprimo2 = es_primo(m)
 if exprimo:
     print(f'El numero {n} es primo por lo tanto el MCD(num1,num2) es {m}')
 
@@ -37,20 +56,7 @@ elif exprimo2:
     print(f'El numero {m} es primo por lo tanto el MCD(num1,num2) es {n}')
 
 else:
-    residuo1 = 1
-    residuo2 = 1
-    if n == m:
-        print(f'El MCD(num1,num2) es {n}')
-    #if n % m == 0:                          #Falla con 72 y 16
-     #   print(f'El MCD(num1,num2) es {m}')
-
-    elif n % m != 0:
-        residuo = n % m
-        if m % residuo != 0:
-            residuo1 = m % residuo
-        else:
-            print(f'El MCD(num1,num2) es {m}')
-            if residuo % residuo1 != 0:
-                residuo2 = residuo % residuo1
-            else:
-                print(f'El MCD(num1,num2) es {residuo}')
+    Divisors1 = es_divisor(n)
+    Divisors2 = es_divisor(m)
+    print(f'El MCD(num1,num2) es: ', end="")
+    compara_listas(Divisors1, Divisors2)
