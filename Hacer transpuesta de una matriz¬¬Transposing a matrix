@@ -1,10 +1,10 @@
-#Hacer transpuesta de una matriz¬¬Transposing a matrix 
+#Hacer transpuesta de una matriz¬¬Transposing a matrix
 
 n = int(input("Digite el numero de filas de su Matriz: "))
 m = int(input("Digite el numero de columnas de su Matriz: "))
 
 M = []
-for i in range(0, m):
+for i in range(0, n):
     M.append([0]*m)
 
 for j in range(0, n):
@@ -16,9 +16,9 @@ print(M, end= " ")
 print("\n")
 N = []
 for i in range(0, m):
-    N.append([0]*m)
+    N.append([0]*n)
 
-for p in range(0, m):
-    for r in range(0, n):
+for p in range(0, n):
+    for r in range(0, m):
         N[r][p] = M[p][r]
 print(N, end=" ")
