@@ -1,24 +1,33 @@
-#Hacer transpuesta de una matriz¬¬Transposing a matrix
+#Es Matriz Triangular Superior
 
-n = int(input("Digite el numero de filas de su Matriz: "))
-m = int(input("Digite el numero de columnas de su Matriz: "))
+m = int(input("Digite el numero de filas y columnas de su Matriz: "))
+
+while m < 2:
+    print("La dimensión de la matriz debe ser al menos de 2 x 2")
+    m = int(input("Digite el numero de filas y columnas de su Matriz: "))
 
 M = []
-for i in range(0, n):
+for i in range(0, m):
     M.append([0]*m)
 
-for j in range(0, n):
+for j in range(0, m):
     for k in range(0, m):
         r = float(input(f"Introduzca el numero de la posicion {[j]}{[k]}: "))
         M[j][k] = r
 print(M, end= " ")
-
 print("\n")
-N = []
-for i in range(0, m):
-    N.append([0]*n)
 
-for p in range(0, n):
-    for r in range(0, m):
-        N[r][p] = M[p][r]
-print(N, end=" ")
+if m == 2:
+    if M[1][0] == 0:
+        print("Su matriz es Triangular")
+    else: print("Su matriz no es Triangular")
+
+if m == 3:
+    if M[1][0] == 0 and M[2][0] == 0 and M[2][1] == 0:
+        print("Su matriz es Triangular")
+    else: print("Su matriz no es Triangular")
+
+if m == 4:
+    if M[1][0] == 0 and M[2][0] == 0 and M[2][1] == 0 and M[3][0] == 0 and M[3][1] == 0 and M[3][2] == 0:
+        print("Su matriz es Triangular")
+    else: print("Su matriz no es Triangular")
