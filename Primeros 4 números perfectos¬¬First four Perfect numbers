@@ -7,11 +7,11 @@ def listar_perfectos(n):
 
 
 perfects = []
-punto_partida = 1
-while len(perfects) < 4 :                  #Si es mayor a 4 son numeros gigantes
-    if listar_perfectos(punto_partida):       #sí es PERFECTO entonces lo agrega a la lista
-        array.append(punto_partida)
-    punto_partida += 1                  #incrementa a 2 luego a 3 y por ultimo a 4 "n"
+inicio = 1
+while len(perfects) < 4:                  #Si es mayor a 4 son numeros gigantes
+    if listar_perfectos(inicio):       #sí es PERFECTO entonces lo agrega a la lista
+        perfects.append(inicio)
+    inicio += 1                  #incrementa a 2 luego a 3 y por ultimo a 4 "n"
 
 print(perfects)
 
