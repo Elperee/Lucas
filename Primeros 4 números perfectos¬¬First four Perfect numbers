@@ -1,0 +1,18 @@
+def listar_perfectos(n):
+    sumatorio = 0
+    for i in range(1, n):
+        if n % i == 0:      #comprueba si es divisor y los va acumulando
+            sumatorio += i
+    return sumatorio == n   #si la suma de los divisores es igual al numero ¡¡ES PERFECTO!!
+
+
+perfects = []
+punto_partida = 1
+while len(perfects) < 4 :                  #Si es mayor a 4 son numeros gigantes
+    if listar_perfectos(punto_partida):       #sí es PERFECTO entonces lo agrega a la lista
+        array.append(punto_partida)
+    punto_partida += 1                  #incrementa a 2 luego a 3 y por ultimo a 4 "n"
+
+print(perfects)
+
+#Cortesía de "Evys Ancede" en lwp
